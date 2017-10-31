@@ -12,6 +12,7 @@ const IconButton = ({
     <div
         className={classNames(styles.container, className)}
         onClick={onClick}
+        role="button"
     >
         <img
             className={styles.icon}
