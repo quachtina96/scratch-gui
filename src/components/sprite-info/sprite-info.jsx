@@ -107,6 +107,7 @@ class SpriteInfo extends React.Component {
                         </MediaQuery>
                         <div>
                             <div
+                                aria-label="Show sprite"
                                 className={classNames(
                                     styles.radio,
                                     styles.radioLeft,
@@ -116,6 +117,7 @@ class SpriteInfo extends React.Component {
                                         [styles.isDisabled]: this.props.disabled
                                     }
                                 )}
+                                role="button"
                                 tabIndex="0"
                                 onClick={this.props.onClickVisible}
                                 onKeyPress={this.props.onPressVisible}
@@ -126,6 +128,7 @@ class SpriteInfo extends React.Component {
                                 />
                             </div>
                             <div
+                                aria-label="Hide sprite"
                                 className={classNames(
                                     styles.radio,
                                     styles.radioRight,
@@ -135,6 +138,7 @@ class SpriteInfo extends React.Component {
                                         [styles.isDisabled]: this.props.disabled
                                     }
                                 )}
+                                role="button"
                                 tabIndex="0"
                                 onClick={this.props.onClickNotVisible}
                                 onKeyPress={this.props.onPressNotVisible}
