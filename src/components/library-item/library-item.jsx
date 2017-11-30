@@ -10,10 +10,18 @@ class LibraryItem extends React.PureComponent {
     constructor (props) {
         super(props);
         bindAll(this, [
+            'handleBlur',
             'handleClick',
+            'handleFocus',
             'handleMouseEnter',
             'handleMouseLeave'
         ]);
+    }
+    handleBlur () {
+        this.props.onBlur(this.props.id);
+    }
+    handleFocus () {
+        this.props.onFocus(this.props.id);
     }
     handleClick (e) {
         this.props.onSelect(this.props.id);
@@ -48,7 +56,11 @@ class LibraryItem extends React.PureComponent {
         ) : (
             <Box
                 className={styles.libraryItem}
+                role="button"
+                tabIndex="0"
+                onBlur={this.handleBlur}
                 onClick={this.handleClick}
+                onFocus={this.handleFocus}
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
             >
@@ -73,6 +85,8 @@ LibraryItem.propTypes = {
     iconURL: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired
